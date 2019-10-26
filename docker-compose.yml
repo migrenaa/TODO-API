@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  todo-api:
+    container_name: todo-api
+    image: node:10
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "3005:3005"
+    command: /bin/bash -c 'yarn; yarn start;'
+    networks:
+      - todo
+      
+networks:
+  todo:
